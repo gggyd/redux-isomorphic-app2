@@ -7,6 +7,7 @@ import App from "./containers/App";
 import CounterPage from "./containers/CounterPage";
 import RedditPage from "./containers/RedditPage";
 import TodoPage from "./containers/TodoPage";
+import ImagesPage from './containers/ImagesPage';
 
 //Redux Dumb
 import HomePage from "./components/Home";
@@ -17,6 +18,7 @@ export default (
   <Route name="app" path="/" component={App}>
       <Route path="home" component={HomePage} />
       <Route path="reddit" component={RedditPage} />
+      <Route path="images" component={ImagesPage} />
       <Route path="todo" component={TodoPage} />
       <Route path="counter" component={CounterPage} />
       <Route path="about" component={AboutPage} />
