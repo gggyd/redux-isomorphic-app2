@@ -5,16 +5,20 @@ import Posts from './images/Posts';
 class Images extends Component {
   constructor(props) {
     super(props);
-
+    this.handleRefreshClick = this.handleRefreshClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchPostsIfNeeded();
   }
 
+  componentWillReceiveProps(nextPorps) {
+
+  }
+
   handleRefreshClick(e) {
     e.preventDefault();
-
+    this.props.invalidateImages();
     this.props.fetchPostsIfNeeded();
   }
 

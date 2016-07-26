@@ -8,6 +8,7 @@ import layout from './layout';
 import todos from './todos';
 import version from './version';
 import { selectedReddit, postsByReddit } from './reddit';
+import { selectedNews, newsByTypes } from './news';
 import { postsByImages } from './images';
 
 const rootReducer = combineReducers({
@@ -18,7 +19,9 @@ const rootReducer = combineReducers({
   todos : undoable(todos),
   selectedReddit : undoable(selectedReddit),
   postsByReddit : undoable(postsByReddit),
-  postsByImages: postsByImages,
+  selectedNews: undoable(selectedNews),
+  newsByTypes: undoable(newsByTypes),
+  postsByImages: undoable(postsByImages),
   router : routerStateReducer
 });
 

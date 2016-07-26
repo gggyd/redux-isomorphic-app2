@@ -6,6 +6,7 @@ import App from "./containers/App";
 //Redux Smart
 import CounterPage from "./containers/CounterPage";
 import RedditPage from "./containers/RedditPage";
+import NewsPage from "./containers/NewsPage";
 import TodoPage from "./containers/TodoPage";
 import ImagesPage from './containers/ImagesPage';
 
@@ -18,6 +19,7 @@ export default (
   <Route name="app" path="/" component={App}>
       <Route path="home" component={HomePage} />
       <Route path="reddit" component={RedditPage} />
+      <Route path="news" component={NewsPage} />
       <Route path="images" component={ImagesPage} />
       <Route path="todo" component={TodoPage} />
       <Route path="counter" component={CounterPage} />

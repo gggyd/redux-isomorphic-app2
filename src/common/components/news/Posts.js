@@ -1,19 +1,17 @@
 import React, { PropTypes, Component } from 'react';
 
 export default class Posts extends Component {
-  render() {
+  render () {
     return (
       <div>
-        {
-          this.props.posts.map((item, index) => {
-            return <blockquote key={index}>{item.title}</blockquote>
-          })
-        }
+        {this.props.posts.map((post, i) => 
+          <blockquote key={i}>{post.title} </blockquote>
+        )}
       </div>
     );
   }
 }
 
-Posts.propsTypes = {
+Posts.propTypes = {
   posts: PropTypes.array.isRequired
-}
+};

@@ -1,26 +1,35 @@
 import {
-  POSTS_GET, POSTS_GET_REQUEST, POSTS_GET_SUCCESS, POSTS_GET_FAILURE
+  INVALIDATE_IMAGES,
+  IMAGES_GET, IMAGES_GET_REQUEST, IMAGES_GET_SUCCESS, IMAGES_GET_FAILURE
 } from '../actions/images';
 
 function posts(state = {
   error: {},
   isFetching: false,
+  didInvalidate: false,
   items: []
 }, action) {
   switch (action.type) {
-    case POSTS_GET_REQUEST:
+    case INVALIDATE_IMAGES:
       return Object.assign({}, state, {
-        isFetching: true
+        didInvalidate: true
       });
-    case POSTS_GET_SUCCESS:
+    case IMAGES_GET_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case IMAGES_GET_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
+        didInvalidate: false,
         items: action.posts,
         lastUpdated: action.receivedAt
       });
-    case POSTS_GET_FAILURE: 
+    case IMAGES_GET_FAILURE: 
       return Object.assign({}, state, {
-        isFetching: false
+        isFetching: false,
+        didInvalidate: false
       });
     default:
       return state;
@@ -29,8 +38,8 @@ function posts(state = {
 
 export function postsByImages(state = { }, action) {
   switch(action.type) {
-    case POSTS_GET_REQUEST:
-    case POSTS_GET_SUCCESS:
+    case IMAGES_GET_REQUEST:
+    case IMAGES_GET_SUCCESS:
       let postsArray = [];
       if (action.req && action.req.data) {
         let data = action.req.data;
@@ -43,7 +52,7 @@ export function postsByImages(state = { }, action) {
           receivedAt: Date.now()
         })
       );
-    case POSTS_GET_FAILURE:
+    case IMAGES_GET_FAILURE:
       return Object.assign({}, state, 
       posts(state, {
         type: action.type,
