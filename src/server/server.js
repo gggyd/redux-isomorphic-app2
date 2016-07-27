@@ -1,4 +1,5 @@
 import express from 'express';
+import favicon from 'serve-favicon';
 
 import webpack from 'webpack';
 import webpackConfig from '../../webpack.config';
@@ -45,6 +46,8 @@ if(process.env.NODE_ENV !== 'production'){
   app.use('/static', express.static(__dirname + '/../../dist'));
 }
 
+app.use(favicon(__dirname + '/../../favicon.ico'));
+
 app.get('/*', function (req, res) {
 
   const location = createLocation(req.url);
@@ -79,6 +82,7 @@ app.get('/*', function (req, res) {
         fetchComponentDataBeforeRender(store.dispatch, renderProps.components, renderProps.params)
           .then(html => {
             const componentHTML = React.renderToString(InitialView);
+            // console.log(componentHTML);
             const initialState = store.getState();
             res.status(200).end(renderFullPage(componentHTML,initialState))
           })

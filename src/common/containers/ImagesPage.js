@@ -10,7 +10,7 @@ Images.need = [
 
 function mapStateToProps(state) {
   let { postsByImages } = state;
-  postsByImages = postsByImages.present;
+  // postsByImages = postsByImages.present;
 
   const {
     isFetching,

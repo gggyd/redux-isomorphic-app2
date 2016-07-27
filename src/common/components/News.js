@@ -54,18 +54,18 @@ class News extends Component {
             </a>
           }
         </p>
-        {isFetching && posts.data.length === 0 &&
+        {isFetching && posts.length === 0 &&
           <h3>Loading...</h3>
         }
-        {!isFetching && error && posts.data.length === 0 &&
+        {!isFetching && error && posts.length === 0 &&
           <h3 className="post-error">There has been an Error</h3>
         }
-        {!isFetching && !error && posts.data.length === 0 &&
+        {!isFetching && !error && posts.length === 0 &&
           <h3>Empty</h3>
         }
-        {posts.data.length > 0 &&
+        {posts.length > 0 &&
           <div style={{ opacity: isFetching ? 0.5 : 1 }}>
-            <Posts posts={posts.data} />
+            <Posts posts={posts} />
           </div>
         }
       </div>

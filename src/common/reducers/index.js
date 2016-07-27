@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   postsByReddit : undoable(postsByReddit),
   selectedNews: undoable(selectedNews),
   newsByTypes: undoable(newsByTypes),
-  postsByImages: undoable(postsByImages),
+  postsByImages: postsByImages,
   router : routerStateReducer
 });
 

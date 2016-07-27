@@ -38,12 +38,13 @@ function posts(state = {
 
 export function postsByImages(state = { }, action) {
   switch(action.type) {
+    case INVALIDATE_IMAGES:
     case IMAGES_GET_REQUEST:
     case IMAGES_GET_SUCCESS:
       let postsArray = [];
       if (action.req && action.req.data) {
         let data = action.req.data;
-        postsArray = data.map(item => item);
+        postsArray = data;
       }
       return Object.assign({}, state, 
         posts(state, {

@@ -12,10 +12,6 @@ class Images extends Component {
     this.props.fetchPostsIfNeeded();
   }
 
-  componentWillReceiveProps(nextPorps) {
-
-  }
-
   handleRefreshClick(e) {
     e.preventDefault();
     this.props.invalidateImages();
@@ -26,24 +22,21 @@ class Images extends Component {
     const { posts, isFetching, lastUpdated, error } = this.props;
     return (
       <div>
-        <p>
-          {
-            lastUpdated && 
+        <p className="post-tag">
+          {lastUpdated && 
             <span>
               last updated at {new Date(lastUpdated).toLocaleTimeString()}.
               {' '}
             </span>
           }
-          {
-            !isFetching &&
+          {!isFetching &&
             <a href='#'
                onClick={this.handleRefreshClick}>
                Refresh
             </a>
           }
         </p>
-        {
-          isFetching && posts.length === 0 &&
+        {isFetching && posts.length === 0 &&
           <h3>Loading...</h3>
         }
         {!isFetching && error && posts.length === 0 &&
@@ -52,14 +45,13 @@ class Images extends Component {
         {!isFetching && !error && posts.length === 0 &&
           <h3>Empty</h3>
         }
-        {
-          posts.length > 0 &&
+        {posts.length > 0 &&
           <div>
             <Posts posts={posts} />
           </div>
         }
       </div>
-    )
+    );
   }
 }
 

@@ -53,7 +53,7 @@ export function newsByTypes(state={}, action) {
     case NEWS_GET_SUCCESS:
       let newsArray = [];
       if (action.req && action.req.data) {
-        let data = action.req;
+        let data = action.req.data;
         newsArray = data;
       }
 
