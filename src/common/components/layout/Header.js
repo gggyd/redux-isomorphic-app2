@@ -1,34 +1,27 @@
 import React, { Component, PropTypes } from 'react';
+import {Link} from 'react-router';
 
 class Header extends Component {
-
+	
   render() {
-  	const {counter, todos} = this.props;
-  	const completedCount = todos.reduce((count, todo) =>
-      todo.completed ? count + 1 : count,
-      0
-    );
-    const activeCount = todos.length - completedCount;
-
+		const {version} = this.props;
 
     return (
-      	<div className="masthead">
-			<div className="container">
-			  <h3 className="masthead-title">
-			    <a href="/" title="Home">Redux Universal</a>
-			    <small>Click on menu icon to get started</small>
-			    <span className="counter-indicator">{`Counter : ${counter}`}</span>
-			    <span className="todo-indicator">{`Todos : ${activeCount}`}</span>
-			  </h3>
+			<div className="masthead">
+				<div className="container">
+					<h3 className="masthead-title">
+						<a href="/" title="Home">同构应用</a>
+					</h3>
+					<nav className="sidebar-nav">
+						<Link to="/home" className="sidebar-nav-item" activeClassName="active">Home <span className="nav-note">[static]</span></Link>
+						<Link to="/news" className="sidebar-nav-item" activeClassName="active">News <span className="nav-note">[api]</span></Link>
+						<Link to="/about" className="sidebar-nav-item" activeClassName="active">About <span className="nav-note">[static]</span></Link>
+						<span className="sidebar-nav-item"><span className="nav-note version">{`Currently version ${version}`}</span></span>
+					</nav>
+				</div>
 			</div>
-		</div>
     );
   }
 }
-
-Header.propTypes = {
-  counter: PropTypes.number.isRequired,
-  todos: PropTypes.array.isRequired
-};
 
 export default Header;

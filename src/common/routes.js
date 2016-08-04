@@ -4,11 +4,8 @@ import React from "react";
 import App from "./containers/App";
 
 //Redux Smart
-import CounterPage from "./containers/CounterPage";
 import RedditPage from "./containers/RedditPage";
 import NewsPage from "./containers/NewsPage";
-import TodoPage from "./containers/TodoPage";
-import ImagesPage from './containers/ImagesPage';
 
 //Redux Dumb
 import HomePage from "./components/Home";
@@ -20,9 +17,6 @@ export default (
       <Route path="home" component={HomePage} />
       <Route path="reddit" component={RedditPage} />
       <Route path="news" component={NewsPage} />
-      <Route path="images" component={ImagesPage} />
-      <Route path="todo" component={TodoPage} />
-      <Route path="counter" component={CounterPage} />
       <Route path="about" component={AboutPage} />
       <Route path="*" component={error404}/>
   </Route>

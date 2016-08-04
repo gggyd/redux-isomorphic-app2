@@ -35,23 +35,17 @@ class App extends Component {
 
   render() {
 
-    const { user,layout, version, counter, todos } = this.props;
-    const { sidebarOpen } = layout;
-    const layoutClass = classNames('wrapper',{open : sidebarOpen});
+    const { user,layout, version } = this.props;
 
     return (
-      <div className={layoutClass}>
-        <Sidebar layout={layout} user={user} version={version} />
+      <div className="">
   	    <div className="wrap">
-          <Header todos={todos} counter={counter} />
+          <Header version={version} />
           <div className="container content">
             {!this.props.children && <Home />}
             {this.props.children}
           </div>
         </div>
-        <label className="sidebar-toggle" onClick={this.eventToggleSidebar}></label>
-        <label className="undo-button" onClick={this.eventUndo}>&lt;</label>
-        <label className="redo-button" onClick={this.eventRedo}>&gt;</label>
       </div>
     );
   }
@@ -59,8 +53,6 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    counter : state.counter.present,
-    todos : state.todos.present,
     version : state.version,
   	user : state.user,
     layout : state.layout.present
