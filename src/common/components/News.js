@@ -37,9 +37,6 @@ class News extends Component {
     const { selectedNews, posts, isFetching, lastUpdated, error } = this.props;
     return (
       <div>
-        <Picker value={selectedNews}
-                onChange={this.handleChange}
-                options={['banner', 'frontend']} />
         <p className="post-tag">
           {lastUpdated &&
             <span>
