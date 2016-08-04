@@ -11,11 +11,11 @@ import { selectedNews, newsByTypes } from './news';
 const rootReducer = combineReducers({
   user : user,
   version : version,
-  layout : undoable(layout),
+  layout : layout,
   selectedReddit : undoable(selectedReddit),
   postsByReddit : undoable(postsByReddit),
-  selectedNews: undoable(selectedNews),
-  newsByTypes: undoable(newsByTypes),
+  selectedNews: selectedNews,
+  newsByTypes: newsByTypes,
   router : routerStateReducer
 });
 

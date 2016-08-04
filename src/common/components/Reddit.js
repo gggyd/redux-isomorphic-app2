@@ -35,6 +35,7 @@ class Reddit extends Component {
 
   render () {
     const { selectedReddit, posts, isFetching, lastUpdated, error } = this.props;
+
     return (
       <div>
         <Picker value={selectedReddit}

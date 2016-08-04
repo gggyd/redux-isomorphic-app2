@@ -55,7 +55,7 @@ function mapStateToProps(state) {
   return {
     version : state.version,
   	user : state.user,
-    layout : state.layout.present
+    layout : state.layout
   };
 }
 

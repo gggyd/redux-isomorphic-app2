@@ -17,12 +17,12 @@ function news(state = {
       });
     case NEWS_GET_REQUEST:
       return Object.assign({}, state, {
-        ifFetching: true,
+        isFetching: true,
         didInvalidate: false
-      })
+      });
     case NEWS_GET_SUCCESS:
       return Object.assign({}, state, {
-        ifFetching: false,
+        isFetching: false,
         didInvalidate: false,
         items: action.posts,
         lastUpdated: action.receivedAt

@@ -12,8 +12,8 @@ News.need = [
 
 function mapStateToProps(state) {
   let { selectedNews, newsByTypes } = state;
-  selectedNews = selectedNews.present;
-  newsByTypes = newsByTypes.present;
+  selectedNews = selectedNews;
+  newsByTypes = newsByTypes;
   const {
     isFetching,
     lastUpdated,
