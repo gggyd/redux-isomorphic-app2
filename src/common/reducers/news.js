@@ -1,5 +1,4 @@
 import {
-  SELECT_NEWS,
   INVALIDATE_NEWS,
   NEWS_GET, NEWS_GET_REQUEST, NEWS_GET_SUCCESS, NEWS_GET_FAILURE
 } from '../actions/news';
@@ -37,15 +36,6 @@ function news(state = {
   }
 }
 
-export function selectedNews(state = 'banner', action) {
-  switch (action.type) {
-    case SELECT_NEWS:
-      return action.news;
-    default:
-      return state;
-  }
-}
-
 export function newsByTypes(state={}, action) {
   switch (action.type) {
     case INVALIDATE_NEWS:
@@ -58,18 +48,16 @@ export function newsByTypes(state={}, action) {
       }
 
       return Object.assign({}, state, {
-        [action.types]: news(state[action.types], {
+        ['data']: news(state['data'], {
           type: action.type,
-          types: action.types,
           posts: newsArray,
           receivedAt: Date.now()
         })
       });
     case NEWS_GET_FAILURE:
       return Object.assign({}, state, {
-        [action.types]: news(state[action.types], {
+        ['data']: news(state['data'], {
           type: action.type,
-          types: action.types,
           posts: [],
           receivedAt: Date.now(),
           error: {

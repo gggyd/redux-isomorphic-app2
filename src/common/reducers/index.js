@@ -6,7 +6,7 @@ import user from './user';
 import layout from './layout';
 import version from './version';
 import { selectedReddit, postsByReddit } from './reddit';
-import { selectedNews, newsByTypes } from './news';
+import {newsByTypes } from './news';
 
 const rootReducer = combineReducers({
   user : user,
@@ -14,7 +14,6 @@ const rootReducer = combineReducers({
   layout : layout,
   selectedReddit : undoable(selectedReddit),
   postsByReddit : undoable(postsByReddit),
-  selectedNews: selectedNews,
   newsByTypes: newsByTypes,
   router : routerStateReducer
 });

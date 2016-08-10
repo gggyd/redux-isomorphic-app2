@@ -4,29 +4,24 @@ import { connect } from 'react-redux';
 import News from '../components/News';
 import * as NewsActions from '../actions/news';
 
-//Data that needs to be called before rendering the component
-//This is used for server side rending via the fetchComponentDataBeforeRending() method
 News.need = [
   NewsActions.fetchNews
 ]
 
 function mapStateToProps(state) {
-  let { selectedNews, newsByTypes } = state;
-  selectedNews = selectedNews;
-  newsByTypes = newsByTypes;
+  let {  newsByTypes } = state;
   const {
     isFetching,
     lastUpdated,
     error,
     items: posts
-  } = newsByTypes[selectedNews] || {
+  } = newsByTypes['data'] || {
     isFetching: true,
     error:{},
     items: []
   };
 
   return {
-    selectedNews,
     posts,
     isFetching,
     lastUpdated,

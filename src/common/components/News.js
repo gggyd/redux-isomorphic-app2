@@ -11,15 +11,7 @@ class News extends Component {
   }
 
   componentDidMount() {
-    const { selectedNews } = this.props;
-    this.props.fetchNewsIfNeeded(selectedNews);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedNews !== this.props.selectedNews) {
-      const { selectedNews } = nextProps;
-      this.props.fetchNewsIfNeeded(selectedNews);
-    }
+    this.props.fetchNewsIfNeeded();
   }
 
   handleChange(nextNews) {
@@ -28,13 +20,12 @@ class News extends Component {
 
   handleRefreshClick(e) {
     e.preventDefault();
-    const { selectedNews } = this.props;
-    this.props.invalidateNews(selectedNews);
-    this.props.fetchNewsIfNeeded(selectedNews);
+    this.props.invalidateNews();
+    this.props.fetchNewsIfNeeded();
   }
 
   render () {
-    const { selectedNews, posts, isFetching, lastUpdated, error } = this.props;
+    const { posts, isFetching, lastUpdated, error } = this.props;
     return (
       <div>
         <p className="post-tag">
@@ -71,7 +62,6 @@ class News extends Component {
 }
 
 News.propTypes = {
-  selectedNews: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
   error: PropTypes.object,
   isFetching: PropTypes.bool.isRequired,
