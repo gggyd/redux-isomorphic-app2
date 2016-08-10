@@ -48,7 +48,7 @@ export function newsByTypes(state={}, action) {
       }
 
       return Object.assign({}, state, {
-        ['data']: news(state['data'], {
+        0: news(state[0], {
           type: action.type,
           posts: newsArray,
           receivedAt: Date.now()
@@ -56,7 +56,7 @@ export function newsByTypes(state={}, action) {
       });
     case NEWS_GET_FAILURE:
       return Object.assign({}, state, {
-        ['data']: news(state['data'], {
+        [0]: news(state[0], {
           type: action.type,
           posts: [],
           receivedAt: Date.now(),

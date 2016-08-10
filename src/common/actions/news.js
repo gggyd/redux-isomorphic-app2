@@ -22,7 +22,7 @@ export function fetchNews() {
 }
 
 function shouldFetchNews(state) {
-  const posts = state.newsByTypes['data'];
+  const posts = state.newsByTypes[0];
   if (!posts) {
     return true;
   } else if (posts.isFetching) {

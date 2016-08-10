@@ -15,7 +15,7 @@ function mapStateToProps(state) {
     lastUpdated,
     error,
     items: posts
-  } = newsByTypes['data'] || {
+  } = newsByTypes[0] || {
     isFetching: true,
     error:{},
     items: []
